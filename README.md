@@ -1,1 +1,1 @@
-# Advanced-Photo-Editor
+# Hines-Photo-Editor

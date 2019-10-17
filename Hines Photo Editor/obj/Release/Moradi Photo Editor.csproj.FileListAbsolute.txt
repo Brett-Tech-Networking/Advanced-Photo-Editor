@@ -1,0 +1,11 @@
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\bin\Release\Advanced Photo Editor.exe.config
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\bin\Release\Advanced Photo Editor.exe
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\bin\Release\Advanced Photo Editor.pdb
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Moradi Photo Editor.csprojAssemblyReference.cache
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Hines_Photo_Editor.Form1.resources
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Hines_Photo_Editor.Information.resources
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Advanced_Photo_Editor.Properties.Resources.resources
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Moradi Photo Editor.csproj.GenerateResource.cache
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Moradi Photo Editor.csproj.CoreCompileInputs.cache
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Advanced Photo Editor.exe
+C:\Users\Brett Tech\Desktop\Advanced Photo Editor\Hines Photo Editor\obj\Release\Advanced Photo Editor.pdb
