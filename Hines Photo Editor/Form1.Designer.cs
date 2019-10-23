@@ -1,6 +1,6 @@
 ﻿namespace Hines_Photo_Editor
 {
-    partial class Form1
+    partial class APE
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(APE));
             this.reset_image_filters = new System.Windows.Forms.Button();
             this.Remove_Image = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,6 +82,7 @@
             this.Image_Erase = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.saveNEWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -233,7 +234,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.saveNEWToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -245,7 +247,8 @@
             this.openToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -254,7 +257,8 @@
             this.saveToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.saveToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -263,7 +267,7 @@
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // filtersToolStripMenuItem
@@ -324,7 +328,7 @@
             this.Rotate_180.BackColor = System.Drawing.Color.Black;
             this.Rotate_180.ForeColor = System.Drawing.Color.Lime;
             this.Rotate_180.Name = "Rotate_180";
-            this.Rotate_180.Size = new System.Drawing.Size(180, 22);
+            this.Rotate_180.Size = new System.Drawing.Size(135, 22);
             this.Rotate_180.Text = "180";
             this.Rotate_180.Click += new System.EventHandler(this.Rotate_180_Click);
             // 
@@ -333,7 +337,7 @@
             this.clockToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.clockToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.clockToolStripMenuItem.Name = "clockToolStripMenuItem";
-            this.clockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clockToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.clockToolStripMenuItem.Text = "90 clock";
             // 
             // counterToolStripMenuItem
@@ -341,7 +345,7 @@
             this.counterToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.counterToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.counterToolStripMenuItem.Name = "counterToolStripMenuItem";
-            this.counterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.counterToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.counterToolStripMenuItem.Text = "90 counter";
             // 
             // helpToolStripMenuItem
@@ -359,7 +363,8 @@
             this.infromationToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.infromationToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.infromationToolStripMenuItem.Name = "infromationToolStripMenuItem";
-            this.infromationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infromationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.infromationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.infromationToolStripMenuItem.Text = "Infromation";
             this.infromationToolStripMenuItem.Click += new System.EventHandler(this.infromationToolStripMenuItem_Click);
             // 
@@ -678,7 +683,14 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
             // 
-            // Form1
+            // saveNEWToolStripMenuItem
+            // 
+            this.saveNEWToolStripMenuItem.Name = "saveNEWToolStripMenuItem";
+            this.saveNEWToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveNEWToolStripMenuItem.Text = "Save (NEW)";
+            this.saveNEWToolStripMenuItem.Click += new System.EventHandler(this.SaveNEWToolStripMenuItem_Click);
+            // 
+            // APE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -704,7 +716,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "APE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Advanced Photo Editor by Brett Tech Networking";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -781,6 +793,7 @@
         private System.Windows.Forms.ToolStripButton Pen;
         private System.Windows.Forms.ToolStripButton Image_Erase;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem saveNEWToolStripMenuItem;
     }
 }
 

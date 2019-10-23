@@ -3,18 +3,24 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Windows;
+
 
 namespace Hines_Photo_Editor
 {
-    public partial class Form1 : Form
+    public partial class APE : Form
     {
-        public Point current = new Point();
-        public Point old = new Point();
+        public System.Drawing.Point current = new System.Drawing.Point();
+        public System.Drawing.Point old = new System.Drawing.Point();
         public TextBox t = new TextBox();
         public Pen p = new Pen(Color.Red, 5);
         public Graphics g;
+        Bitmap surface;
+        Graphics graph;
+        string s = "Picture";
+        int i = 1;
 
-        public Form1()
+        public APE()
         {
             InitializeComponent();
 
@@ -26,6 +32,8 @@ namespace Hines_Photo_Editor
             this.AllowDrop = true;
             this.DragDrop += new DragEventHandler(this.Form1_Load);
             this.DragEnter += new DragEventHandler(this.Form1_Load);
+            pictureBox1.BackgroundImage = surface;
+            pictureBox1.BackgroundImageLayout = ImageLayout.None;
         }
 
 
@@ -384,6 +392,8 @@ namespace Hines_Photo_Editor
             {
                 /*stops from crashing if drawing fails */
             }
+
+      
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
@@ -459,6 +469,12 @@ namespace Hines_Photo_Editor
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == DialogResult.OK)
                 p.Color = cd.Color;
+        }
+
+        private void SaveNEWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
         }
 
       
