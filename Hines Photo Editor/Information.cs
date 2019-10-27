@@ -16,5 +16,10 @@ namespace Hines_Photo_Editor
         {
             InitializeComponent();
         }
+
+        private void Website_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.Brett-TechRepair.com");
+        }
     }
 }

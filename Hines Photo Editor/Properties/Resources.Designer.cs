@@ -63,6 +63,26 @@ namespace Advanced_Photo_Editor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap APE {
+            get {
+                object obj = ResourceManager.GetObject("APE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap APE1 {
+            get {
+                object obj = ResourceManager.GetObject("APE1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap draw_icon {
             get {
                 object obj = ResourceManager.GetObject("draw icon", resourceCulture);

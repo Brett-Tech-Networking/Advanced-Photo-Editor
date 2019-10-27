@@ -4,7 +4,8 @@ using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
-
+using Microsoft.Office.Interop.Excel;
+using System.Net;
 
 namespace Hines_Photo_Editor
 {
@@ -12,7 +13,7 @@ namespace Hines_Photo_Editor
     {
         public System.Drawing.Point current = new System.Drawing.Point();
         public System.Drawing.Point old = new System.Drawing.Point();
-        public TextBox t = new TextBox();
+        public System.Windows.Forms.TextBox t = new System.Windows.Forms.TextBox();
         public Pen p = new Pen(Color.Red, 5);
         public Graphics g;
         Bitmap surface;
@@ -75,7 +76,7 @@ namespace Hines_Photo_Editor
                 ia.SetColorMatrix(cmPicture);
                 Graphics g = Graphics.FromImage(bmpInverted);
 
-                g.DrawImage(img, new Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
+                g.DrawImage(img, new System.Drawing.Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
                 g.Dispose();
                 pictureBox1.Image = bmpInverted;
 
@@ -109,7 +110,7 @@ namespace Hines_Photo_Editor
                 ia.SetColorMatrix(cmPicture);
                 Graphics g = Graphics.FromImage(bmpInverted);
 
-                g.DrawImage(img, new Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
+                g.DrawImage(img, new System.Drawing.Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
                 g.Dispose();
                 pictureBox1.Image = bmpInverted;
 
@@ -144,7 +145,7 @@ namespace Hines_Photo_Editor
                 ia.SetColorMatrix(cmPicture);
                 Graphics g = Graphics.FromImage(bmpInverted);
 
-                g.DrawImage(img, new Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
+                g.DrawImage(img, new System.Drawing.Rectangle(0, 0, img.Width, img.Height), 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, ia);
                 g.Dispose();
                 pictureBox1.Image = bmpInverted;
 
@@ -197,11 +198,6 @@ namespace Hines_Photo_Editor
 
         Image file;
         Boolean opened = false; // to check if there is an existing image loaded or not
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button9_Click(object sender, EventArgs e)
         {
@@ -273,6 +269,8 @@ namespace Hines_Photo_Editor
         {
             pictureBox1.AllowDrop = true;
 
+            
+
         }
 
         private void filter1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -339,7 +337,16 @@ namespace Hines_Photo_Editor
 
         private void Rotate_180_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Image img = pictureBox1.Image;
+                img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                pictureBox1.Image = img;
+            }
+            catch
+            {
+                MessageBox.Show("Please Upload An Image First", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
@@ -477,6 +484,71 @@ namespace Hines_Photo_Editor
 
         }
 
-      
+        private void ClockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Image img = pictureBox1.Image;
+                img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                pictureBox1.Image = img;
+            }
+            catch
+            {
+                MessageBox.Show("Please Upload An Image First", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RemoveImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image.Dispose();
+        }
+
+        private void ResetImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pictureBox1.Refresh();
+                reload();
+                trackBar1.Value = 0;
+                trackBar2.Value = 0;
+                trackBar3.Value = 0;
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void ToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try { pictureBox1.BackColor = Color.Red; } catch { }
+        }
+
+        private void BackBlack_Click(object sender, EventArgs e)
+        {
+            try { pictureBox1.BackColor = Color.Black; } catch { }
+        }
+
+        private void DarkBlueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try { pictureBox1.BackColor = Color.DarkBlue; } catch { }
+
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            System.Windows.Forms.Application.ExitThread();
+        }
     }
 }
