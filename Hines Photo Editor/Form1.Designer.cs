@@ -86,9 +86,10 @@
             this.ToolsToolBar = new System.Windows.Forms.ToolStrip();
             this.Pen = new System.Windows.Forms.ToolStripButton();
             this.Image_Erase = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Circle = new System.Windows.Forms.ToolStripButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.trackBar4 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -99,6 +100,7 @@
             this.ToolsToolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
             this.SuspendLayout();
             // 
             // reset_image_filters
@@ -106,7 +108,7 @@
             this.reset_image_filters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reset_image_filters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reset_image_filters.ForeColor = System.Drawing.Color.Yellow;
-            this.reset_image_filters.Location = new System.Drawing.Point(228, 48);
+            this.reset_image_filters.Location = new System.Drawing.Point(244, 43);
             this.reset_image_filters.Name = "reset_image_filters";
             this.reset_image_filters.Size = new System.Drawing.Size(91, 25);
             this.reset_image_filters.TabIndex = 1;
@@ -119,7 +121,7 @@
             this.Remove_Image.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Remove_Image.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Remove_Image.ForeColor = System.Drawing.Color.Yellow;
-            this.Remove_Image.Location = new System.Drawing.Point(131, 48);
+            this.Remove_Image.Location = new System.Drawing.Point(147, 43);
             this.Remove_Image.Name = "Remove_Image";
             this.Remove_Image.Size = new System.Drawing.Size(91, 25);
             this.Remove_Image.TabIndex = 7;
@@ -133,7 +135,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(1465, 678);
+            this.label1.Location = new System.Drawing.Point(1487, 678);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 17);
             this.label1.TabIndex = 8;
@@ -143,7 +145,7 @@
             // trackBar1
             // 
             this.trackBar1.LargeChange = 2;
-            this.trackBar1.Location = new System.Drawing.Point(1295, 678);
+            this.trackBar1.Location = new System.Drawing.Point(1317, 678);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(168, 45);
             this.trackBar1.TabIndex = 9;
@@ -152,7 +154,7 @@
             // trackBar2
             // 
             this.trackBar2.LargeChange = 2;
-            this.trackBar2.Location = new System.Drawing.Point(1295, 710);
+            this.trackBar2.Location = new System.Drawing.Point(1317, 710);
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(168, 45);
             this.trackBar2.TabIndex = 10;
@@ -161,7 +163,7 @@
             // trackBar3
             // 
             this.trackBar3.LargeChange = 2;
-            this.trackBar3.Location = new System.Drawing.Point(1295, 740);
+            this.trackBar3.Location = new System.Drawing.Point(1317, 740);
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(168, 45);
             this.trackBar3.TabIndex = 11;
@@ -173,7 +175,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(1465, 707);
+            this.label2.Location = new System.Drawing.Point(1487, 707);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 12;
@@ -186,7 +188,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(1469, 740);
+            this.label3.Location = new System.Drawing.Point(1491, 740);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 13;
@@ -197,7 +199,7 @@
             // 
             this.Save_Image.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_Image.ForeColor = System.Drawing.Color.Red;
-            this.Save_Image.Location = new System.Drawing.Point(13, 50);
+            this.Save_Image.Location = new System.Drawing.Point(29, 45);
             this.Save_Image.Name = "Save_Image";
             this.Save_Image.Size = new System.Drawing.Size(45, 21);
             this.Save_Image.TabIndex = 14;
@@ -209,7 +211,7 @@
             // 
             this.Open_Image.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Open_Image.ForeColor = System.Drawing.Color.Red;
-            this.Open_Image.Location = new System.Drawing.Point(63, 50);
+            this.Open_Image.Location = new System.Drawing.Point(79, 45);
             this.Open_Image.Name = "Open_Image";
             this.Open_Image.Size = new System.Drawing.Size(48, 21);
             this.Open_Image.TabIndex = 15;
@@ -253,7 +255,7 @@
             this.openToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -263,7 +265,7 @@
             this.saveToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -272,15 +274,14 @@
             this.exitToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // saveNEWToolStripMenuItem
             // 
-            this.saveNEWToolStripMenuItem.Enabled = false;
             this.saveNEWToolStripMenuItem.Name = "saveNEWToolStripMenuItem";
-            this.saveNEWToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveNEWToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saveNEWToolStripMenuItem.Text = "Save (NEW)";
             this.saveNEWToolStripMenuItem.Click += new System.EventHandler(this.SaveNEWToolStripMenuItem_Click);
             // 
@@ -305,7 +306,7 @@
             this.filteryellowToolStripMenuItem});
             this.FiltersMenu.ForeColor = System.Drawing.Color.Lime;
             this.FiltersMenu.Name = "FiltersMenu";
-            this.FiltersMenu.Size = new System.Drawing.Size(180, 22);
+            this.FiltersMenu.Size = new System.Drawing.Size(141, 22);
             this.FiltersMenu.Text = "Filters";
             // 
             // filtergreenToolStripMenuItem
@@ -334,7 +335,7 @@
             this.Rotate_Left});
             this.RotationMenu.ForeColor = System.Drawing.Color.Lime;
             this.RotationMenu.Name = "RotationMenu";
-            this.RotationMenu.Size = new System.Drawing.Size(180, 22);
+            this.RotationMenu.Size = new System.Drawing.Size(141, 22);
             this.RotationMenu.Text = "Rotation";
             // 
             // Rotate_Right
@@ -363,7 +364,7 @@
             this.resetImageToolStripMenuItem});
             this.Tools.ForeColor = System.Drawing.Color.Lime;
             this.Tools.Name = "Tools";
-            this.Tools.Size = new System.Drawing.Size(180, 22);
+            this.Tools.Size = new System.Drawing.Size(141, 22);
             this.Tools.Text = "Tools";
             // 
             // removeImageToolStripMenuItem
@@ -371,7 +372,7 @@
             this.removeImageToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.removeImageToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.removeImageToolStripMenuItem.Name = "removeImageToolStripMenuItem";
-            this.removeImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeImageToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.removeImageToolStripMenuItem.Text = "Remove Image";
             this.removeImageToolStripMenuItem.Click += new System.EventHandler(this.RemoveImageToolStripMenuItem_Click);
             // 
@@ -380,7 +381,7 @@
             this.resetImageToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.resetImageToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.resetImageToolStripMenuItem.Name = "resetImageToolStripMenuItem";
-            this.resetImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetImageToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.resetImageToolStripMenuItem.Text = "Reset Image";
             this.resetImageToolStripMenuItem.Click += new System.EventHandler(this.ResetImageToolStripMenuItem_Click);
             // 
@@ -393,7 +394,7 @@
             this.darkBlueToolStripMenuItem});
             this.backgroundColorToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.backgroundColorToolStripMenuItem.Text = "Background";
             // 
             // BackRed
@@ -401,7 +402,7 @@
             this.BackRed.BackColor = System.Drawing.Color.Black;
             this.BackRed.ForeColor = System.Drawing.Color.Lime;
             this.BackRed.Name = "BackRed";
-            this.BackRed.Size = new System.Drawing.Size(180, 22);
+            this.BackRed.Size = new System.Drawing.Size(129, 22);
             this.BackRed.Text = "Red";
             this.BackRed.Click += new System.EventHandler(this.RedToolStripMenuItem_Click);
             // 
@@ -410,7 +411,7 @@
             this.BackBlack.BackColor = System.Drawing.Color.Black;
             this.BackBlack.ForeColor = System.Drawing.Color.Lime;
             this.BackBlack.Name = "BackBlack";
-            this.BackBlack.Size = new System.Drawing.Size(180, 22);
+            this.BackBlack.Size = new System.Drawing.Size(129, 22);
             this.BackBlack.Text = "Black";
             this.BackBlack.Click += new System.EventHandler(this.BackBlack_Click);
             // 
@@ -419,7 +420,7 @@
             this.darkBlueToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.darkBlueToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.darkBlueToolStripMenuItem.Name = "darkBlueToolStripMenuItem";
-            this.darkBlueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.darkBlueToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.darkBlueToolStripMenuItem.Text = "Dark Blue";
             this.darkBlueToolStripMenuItem.Click += new System.EventHandler(this.DarkBlueToolStripMenuItem_Click);
             // 
@@ -457,7 +458,7 @@
             this.panel1.Controls.Add(this.radioButton3);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(1295, 482);
+            this.panel1.Location = new System.Drawing.Point(1317, 482);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(68, 175);
             this.panel1.TabIndex = 19;
@@ -588,7 +589,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Lime;
-            this.label7.Location = new System.Drawing.Point(1363, 482);
+            this.label7.Location = new System.Drawing.Point(1385, 482);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 13);
             this.label7.TabIndex = 22;
@@ -610,7 +611,7 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.green);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(69, 134);
             this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
-            this.toolStripContainer1.Location = new System.Drawing.Point(1366, 498);
+            this.toolStripContainer1.Location = new System.Drawing.Point(1388, 498);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(69, 159);
             this.toolStripContainer1.TabIndex = 21;
@@ -700,14 +701,18 @@
             // 
             // ToolsToolBar
             // 
+            this.ToolsToolBar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ToolsToolBar.BackColor = System.Drawing.Color.Black;
             this.ToolsToolBar.Dock = System.Windows.Forms.DockStyle.None;
+            this.ToolsToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolsToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Pen,
             this.Image_Erase,
-            this.toolStripButton1});
-            this.ToolsToolBar.Location = new System.Drawing.Point(1377, 104);
+            this.Circle});
+            this.ToolsToolBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.ToolsToolBar.Location = new System.Drawing.Point(0, 72);
             this.ToolsToolBar.Name = "ToolsToolBar";
-            this.ToolsToolBar.Size = new System.Drawing.Size(81, 25);
+            this.ToolsToolBar.Size = new System.Drawing.Size(24, 71);
             this.ToolsToolBar.TabIndex = 23;
             this.ToolsToolBar.Text = "ToolsToolBar";
             this.ToolsToolBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolStrip1_ItemClicked);
@@ -718,28 +723,28 @@
             this.Pen.Image = global::Advanced_Photo_Editor.Properties.Resources.pen;
             this.Pen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pen.Name = "Pen";
-            this.Pen.Size = new System.Drawing.Size(23, 22);
+            this.Pen.Size = new System.Drawing.Size(22, 20);
             this.Pen.Text = "pen";
             this.Pen.Click += new System.EventHandler(this.Pen_Click);
             // 
             // Image_Erase
             // 
             this.Image_Erase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Image_Erase.Image = global::Advanced_Photo_Editor.Properties.Resources.eraser;
+            this.Image_Erase.Image = global::Advanced_Photo_Editor.Properties.Resources.eraser1;
             this.Image_Erase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Image_Erase.Name = "Image_Erase";
-            this.Image_Erase.Size = new System.Drawing.Size(23, 22);
+            this.Image_Erase.Size = new System.Drawing.Size(22, 20);
             this.Image_Erase.Text = "eraser";
             this.Image_Erase.Click += new System.EventHandler(this.Image_Erase_Click);
             // 
-            // toolStripButton1
+            // Circle
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.Circle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.Circle.Image = ((System.Drawing.Image)(resources.GetObject("Circle.Image")));
+            this.Circle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Circle.Name = "Circle";
+            this.Circle.Size = new System.Drawing.Size(22, 20);
+            this.Circle.Text = "toolStripButton1";
             // 
             // pictureBox2
             // 
@@ -756,7 +761,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(29, 72);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1277, 713);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -768,12 +773,26 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
             // 
+            // trackBar4
+            // 
+            this.trackBar4.LargeChange = 4;
+            this.trackBar4.Location = new System.Drawing.Point(1331, 281);
+            this.trackBar4.Maximum = 4;
+            this.trackBar4.Minimum = 1;
+            this.trackBar4.Name = "trackBar4";
+            this.trackBar4.Size = new System.Drawing.Size(104, 45);
+            this.trackBar4.TabIndex = 25;
+            this.trackBar4.Value = 1;
+            this.trackBar4.ValueChanged += new System.EventHandler(this.TrackBar4_ValueChanged);
+            this.trackBar4.MouseCaptureChanged += new System.EventHandler(this.TrackBar4_MouseCaptureChanged);
+            // 
             // APE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1555, 797);
+            this.Controls.Add(this.trackBar4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ToolsToolBar);
             this.Controls.Add(this.label7);
@@ -813,6 +832,7 @@
             this.ToolsToolBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,7 +890,6 @@
         private System.Windows.Forms.ToolStrip ToolsToolBar;
         private System.Windows.Forms.ToolStripButton Pen;
         private System.Windows.Forms.ToolStripButton Image_Erase;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripMenuItem saveNEWToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Tools;
         private System.Windows.Forms.ToolStripMenuItem removeImageToolStripMenuItem;
@@ -880,6 +899,8 @@
         private System.Windows.Forms.ToolStripMenuItem BackRed;
         private System.Windows.Forms.ToolStripMenuItem BackBlack;
         private System.Windows.Forms.ToolStripMenuItem darkBlueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton Circle;
+        private System.Windows.Forms.TrackBar trackBar4;
     }
 }
 

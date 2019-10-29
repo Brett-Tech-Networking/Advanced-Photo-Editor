@@ -6,6 +6,15 @@ using System.IO;
 using System.Windows;
 using Microsoft.Office.Interop.Excel;
 using System.Net;
+using Rectangle = System.Drawing.Rectangle;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Linq;
+using System.Text;
+
+
+
 
 namespace Hines_Photo_Editor
 {
@@ -20,6 +29,22 @@ namespace Hines_Photo_Editor
         Graphics graph;
         string s = "Picture";
         int i = 1;
+
+        //TEST SHAPES
+        enum Shapes { LINE, OVAL, BOX, NONE }
+        private Shapes currentShape = Shapes.LINE;
+        private bool trails = false;
+        private bool drag = false;
+        int x, y;
+        Random randomGen = new Random();
+        bool randColor = false;
+        Color randomColor;
+        int brushWidth = 4;
+        Color userColor = Color.Black;
+        ColorDialog cd = new ColorDialog();
+        bool floodFillActive = false;
+
+
 
         public APE()
         {
@@ -269,8 +294,6 @@ namespace Hines_Photo_Editor
         {
             pictureBox1.AllowDrop = true;
 
-            
-
         }
 
         private void filter1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -351,7 +374,7 @@ namespace Hines_Photo_Editor
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-
+         
         }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -399,8 +422,6 @@ namespace Hines_Photo_Editor
             {
                 /*stops from crashing if drawing fails */
             }
-
-      
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
@@ -440,9 +461,9 @@ namespace Hines_Photo_Editor
 
         private void Pen_Click(object sender, EventArgs e)
         {
-     if (Pen.Checked == true)
+            if (Pen.Checked == true)
             {
-               
+
             }
         }
 
@@ -480,7 +501,17 @@ namespace Hines_Photo_Editor
 
         private void SaveNEWToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+             SaveFileDialog dlgSave = new SaveFileDialog();
+             dlgSave.Title = "Save Image";
+             dlgSave.Filter = "Bitmap Images (*.bmp)|*.bmp|All Files (*.*)|*.*";
+             if (dlgSave.ShowDialog(this) == DialogResult.OK)
+             {
+                 pictureBox1.Image.Save(dlgSave.FileName);
+             }
+             else
+             {
+                 //
+             } 
 
         }
 
@@ -549,6 +580,22 @@ namespace Hines_Photo_Editor
         {
             this.Close();
             System.Windows.Forms.Application.ExitThread();
+        }
+
+        private void TrackBar4_MouseCaptureChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TrackBar4_ValueChanged(object sender, EventArgs e)
+        {
+            switch (trackBar1.Value)
+            {
+                case 1: currentShape = Shapes.LINE; break;
+                case 2: currentShape = Shapes.OVAL; break;
+                case 3: currentShape = Shapes.BOX; break;
+                case 4: currentShape = Shapes.NONE; break;
+            }
         }
     }
 }
