@@ -12,9 +12,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
-
-
-
+using Point = System.Drawing.Point;
 
 namespace Hines_Photo_Editor
 {
@@ -31,6 +29,7 @@ namespace Hines_Photo_Editor
         int i = 1;
 
         //TEST SHAPES
+        private List<APShape> shapes = new List<APShape>();
         enum Shapes { LINE, OVAL, BOX, NONE }
         private Shapes currentShape = Shapes.LINE;
         private bool trails = false;
@@ -248,6 +247,7 @@ namespace Hines_Photo_Editor
             trackBar1.Value = 0;
             trackBar2.Value = 0;
             trackBar3.Value = 0;
+            if (!drag) { shapes.Clear(); Refresh(); }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -374,13 +374,82 @@ namespace Hines_Photo_Editor
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-         
+            Graphics g = e.Graphics;
+
+            foreach (var item in shapes)
+            {
+                item.draw(e.Graphics);
+            }
         }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
 
-            old = e.Location;
+            //new code
+            if (floodFillActive)
+            {
+
+            }
+            else
+            {
+                drag = true;
+                System.Drawing.Point startingPoint = e.Location;
+
+                x = startingPoint.X; //Creates the starting point
+                y = startingPoint.Y;
+
+                if (randColor) //Generates a random color if randColor
+                {
+                    KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+                    KnownColor randomColorName = names[randomGen.Next(names.Length)];
+                    randomColor = Color.FromKnownColor(randomColorName);
+                }
+
+                if (trails == false)
+                {
+                    switch (currentShape) //Chooses which shape to create based on the current shape. Also chooses weather to paint it with random colors or a usercolor
+                    {
+                        case Shapes.LINE:
+                            if (randColor) shapes.Add(new APLine(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, x, y, userColor, brushWidth)); };
+                            break;
+                        case Shapes.OVAL:
+                            if (randColor) shapes.Add(new APOval(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, x, y, userColor, brushWidth)); };
+                            break;
+                        case Shapes.BOX:
+                            if (randColor) shapes.Add(new APBox(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, x, y, userColor, brushWidth)); };
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                else //If trails is true
+                {
+                    switch (currentShape)
+                    {
+                        case Shapes.LINE:
+                            if (randColor) shapes.Add(new APLine(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, x, y, userColor, brushWidth)); };
+                            break;
+                        case Shapes.OVAL:
+                            if (randColor) shapes.Add(new APOval(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, x, y, userColor, brushWidth)); };
+                            break;
+                        case Shapes.BOX:
+                            if (randColor) shapes.Add(new APBox(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, x, y, userColor, brushWidth)); };
+                            break;
+                        default:
+                            break;
+
+                    }
+
+
+                }
+            }
+
+
+
+            /*
+        //my code
+        old = e.Location;
             if (radioButton1.Checked)
                 p.Width = 1;
             else if (radioButton2.Checked)
@@ -400,11 +469,62 @@ namespace Hines_Photo_Editor
             else if (radioButton9.Checked)
                 p.Width = 70;
 
-
+            */
         }
+
 
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+
+            //new code
+            Point endingPoint = e.Location;
+
+            int ex = endingPoint.X;
+            int ey = endingPoint.Y;
+            Shapes shape = currentShape;
+
+            if (drag)
+            {
+                if (!trails)
+                {
+                    shapes.Last().setX2(ex);
+                    shapes.Last().setY2(ey);
+                }
+                else
+                {
+                    shapes.Last().setX2(ex);
+                    shapes.Last().setY2(ey);
+                    if (randColor)
+                    {
+                        KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+                        KnownColor randomColorName = names[randomGen.Next(names.Length)];
+                        randomColor = Color.FromKnownColor(randomColorName);
+                    }
+
+                    switch (shape)
+                    {
+                        case Shapes.LINE:
+                            if (randColor) shapes.Add(new APLine(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, ex, ey, userColor, brushWidth)); };
+                            break;
+                        case Shapes.OVAL:
+                            if (randColor) shapes.Add(new APOval(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, ex, ey, userColor, brushWidth)); };
+                            break;
+                        case Shapes.BOX:
+                            if (randColor) shapes.Add(new APBox(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, ex, ey, userColor, brushWidth)); };
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                }
+
+                Refresh();
+            }
+
+
+            
+            //my code
             try
             {
                 if (e.Button == MouseButtons.Left)
@@ -421,7 +541,9 @@ namespace Hines_Photo_Editor
             catch
             {
                 /*stops from crashing if drawing fails */
-            }
+                
+        }
+    
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
@@ -582,14 +704,33 @@ namespace Hines_Photo_Editor
             System.Windows.Forms.Application.ExitThread();
         }
 
-        private void TrackBar4_MouseCaptureChanged(object sender, EventArgs e)
+        private void APE_KeyPress(object sender, KeyPressEventArgs e)
         {
+            switch (e.KeyChar) //Determines what to do based on the key entered
+            {
+                case 'l': currentShape = Shapes.LINE; trackBar4.Value = 1; break;
+                case 'o': currentShape = Shapes.OVAL; trackBar4.Value = 2; break;
+                case 'r': currentShape = Shapes.BOX; trackBar4.Value = 3; break;
+                case 't': if (trails == false) { trails = true; } else { trails = false; }; break;
+                case 'c': if (!drag) { shapes.Clear(); Refresh(); } break;
+                case 'a': if (randColor == false) { randColor = true; } else { randColor = false; } break;
+                case 'u': cd.ShowDialog(); userColor = cd.Color; randColor = false; break;
+                case 'z': if (shapes.Count >= 1 && !drag) { shapes.Remove(shapes.Last()); Refresh(); }; break;
+            }
+        }
 
+        
+
+
+        private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            drag = false;
+            Refresh();
         }
 
         private void TrackBar4_ValueChanged(object sender, EventArgs e)
         {
-            switch (trackBar1.Value)
+            switch (trackBar4.Value)
             {
                 case 1: currentShape = Shapes.LINE; break;
                 case 2: currentShape = Shapes.OVAL; break;
@@ -599,3 +740,4 @@ namespace Hines_Photo_Editor
         }
     }
 }
+

@@ -90,6 +90,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.shapenames = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -772,19 +773,29 @@
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseUp);
             // 
             // trackBar4
             // 
-            this.trackBar4.LargeChange = 4;
-            this.trackBar4.Location = new System.Drawing.Point(1331, 281);
-            this.trackBar4.Maximum = 4;
+            this.trackBar4.LargeChange = 1;
+            this.trackBar4.Location = new System.Drawing.Point(1331, 431);
+            this.trackBar4.Maximum = 3;
             this.trackBar4.Minimum = 1;
             this.trackBar4.Name = "trackBar4";
             this.trackBar4.Size = new System.Drawing.Size(104, 45);
             this.trackBar4.TabIndex = 25;
             this.trackBar4.Value = 1;
             this.trackBar4.ValueChanged += new System.EventHandler(this.TrackBar4_ValueChanged);
-            this.trackBar4.MouseCaptureChanged += new System.EventHandler(this.TrackBar4_MouseCaptureChanged);
+            // 
+            // shapenames
+            // 
+            this.shapenames.AutoSize = true;
+            this.shapenames.ForeColor = System.Drawing.Color.Lime;
+            this.shapenames.Location = new System.Drawing.Point(1334, 415);
+            this.shapenames.Name = "shapenames";
+            this.shapenames.Size = new System.Drawing.Size(105, 13);
+            this.shapenames.TabIndex = 26;
+            this.shapenames.Text = "Line   Circle   Square";
             // 
             // APE
             // 
@@ -792,6 +803,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1555, 797);
+            this.Controls.Add(this.shapenames);
             this.Controls.Add(this.trackBar4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ToolsToolBar);
@@ -818,6 +830,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Advanced Photo Editor by Brett Tech Networking";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.APE_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
@@ -901,6 +914,7 @@
         private System.Windows.Forms.ToolStripMenuItem darkBlueToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton Circle;
         private System.Windows.Forms.TrackBar trackBar4;
+        private System.Windows.Forms.Label shapenames;
     }
 }
 

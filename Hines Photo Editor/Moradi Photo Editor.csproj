@@ -71,6 +71,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APBox.cs" />
+    <Compile Include="APFill.cs" />
+    <Compile Include="APLine.cs" />
+    <Compile Include="APOval.cs" />
+    <Compile Include="APShape.cs" />
     <Compile Include="CustomControl1.cs">
       <SubType>Component</SubType>
     </Compile>
