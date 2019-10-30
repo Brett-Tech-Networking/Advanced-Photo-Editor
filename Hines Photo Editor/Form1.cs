@@ -13,6 +13,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Point = System.Drawing.Point;
+using Advanced_Photo_Editor;
+using System.Messaging;
 
 namespace Hines_Photo_Editor
 {
@@ -319,10 +321,7 @@ namespace Hines_Photo_Editor
 
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            saveImage();
-        }
+      
 
         private void FiltergreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -380,6 +379,10 @@ namespace Hines_Photo_Editor
             {
                 item.draw(e.Graphics);
             }
+           
+           
+
+
         }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -447,7 +450,6 @@ namespace Hines_Photo_Editor
 
 
 
-            /*
         //my code
         old = e.Location;
             if (radioButton1.Checked)
@@ -469,7 +471,7 @@ namespace Hines_Photo_Editor
             else if (radioButton9.Checked)
                 p.Width = 70;
 
-            */
+           
         }
 
 
@@ -583,10 +585,26 @@ namespace Hines_Photo_Editor
 
         private void Pen_Click(object sender, EventArgs e)
         {
-            if (Pen.Checked == true)
-            {
-
-            }
+            //my code
+            
+            if (radioButton1.Checked)
+                p.Width = 1;
+            else if (radioButton2.Checked)
+                p.Width = 5;
+            else if (radioButton3.Checked)
+                p.Width = 10;
+            else if (radioButton4.Checked)
+                p.Width = 15;
+            else if (radioButton5.Checked)
+                p.Width = 30;
+            else if (radioButton6.Checked)
+                p.Width = 40;
+            else if (radioButton7.Checked)
+                p.Width = 50;
+            else if (radioButton8.Checked)
+                p.Width = 60;
+            else if (radioButton9.Checked)
+                p.Width = 70;
         }
 
         private void Image_Erase_Click(object sender, EventArgs e)
@@ -623,18 +641,24 @@ namespace Hines_Photo_Editor
 
         private void SaveNEWToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             SaveFileDialog dlgSave = new SaveFileDialog();
-             dlgSave.Title = "Save Image";
-             dlgSave.Filter = "Bitmap Images (*.bmp)|*.bmp|All Files (*.*)|*.*";
-             if (dlgSave.ShowDialog(this) == DialogResult.OK)
-             {
-                 pictureBox1.Image.Save(dlgSave.FileName);
-             }
-             else
-             {
-                 //
-             } 
 
+            saveFileDialog1.FileName ="image";
+            saveFileDialog1.DefaultExt = "";
+            saveFileDialog1.Filter = "bmp images (*.bmp)|*.bmp";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+
+                pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0,
+                    pictureBox1.Width, pictureBox1.Height));
+
+                var fileName = saveFileDialog1.FileName;
+                if (!System.IO.Path.HasExtension(fileName) || System.IO.Path.GetExtension(fileName) != "bmp")
+                    fileName = fileName + ".bmp";
+
+                bmp.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
         }
 
         private void ClockToolStripMenuItem_Click(object sender, EventArgs e)
@@ -726,6 +750,51 @@ namespace Hines_Photo_Editor
         {
             drag = false;
             Refresh();
+        }
+
+        private void HelpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            HelpPage help = new HelpPage();
+            help.Show();
+        }
+
+        private void LineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            trackBar4.Value = 1;
+        }
+
+        private void SquareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            trackBar4.Value = 2;
+        }
+
+        private void SquareToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            trackBar4.Value = 3;
+        }
+
+        private void ModifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            trackBar4.Value = 4;
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void Circle_Click(object sender, EventArgs e )
+        {
+            HelpPage help = new HelpPage();
+            help.Show();
+        }
+
+        private void Textdrop_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TextBox1_MouseClick(object sender, MouseEventArgs e)
+        {
         }
 
         private void TrackBar4_ValueChanged(object sender, EventArgs e)
