@@ -1,4 +1,16 @@
 # Advanced Photo Editor
+# Changes Made: 10/29/19
+-Added Shape Selector (Line, Circle, Square, Modify(Last Shape)
+
+-Added Shapes to toolbar image>shapes>tools
+
+-Added Help Section (gives a discription of tools on program)
+
+-Added Saving (Can now save image with drawing/shapes)
+# Bugs 
+-Normal Drawing is broken only shapes can be drawn at the moment
+
+-More saving formats need added
 
 # Changes Made: 10/27/19
 
