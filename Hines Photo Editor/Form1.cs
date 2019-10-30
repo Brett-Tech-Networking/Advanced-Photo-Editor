@@ -295,7 +295,6 @@ namespace Hines_Photo_Editor
         private void Form1_Load(object sender, EventArgs e)
         {
             pictureBox1.AllowDrop = true;
-
         }
 
         private void filter1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -379,173 +378,173 @@ namespace Hines_Photo_Editor
             {
                 item.draw(e.Graphics);
             }
-           
-           
-
-
         }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-
-            //new code
-            if (floodFillActive)
+            if (trackBar4.Enabled == true)
             {
-
-            }
-            else
-            {
-                drag = true;
-                System.Drawing.Point startingPoint = e.Location;
-
-                x = startingPoint.X; //Creates the starting point
-                y = startingPoint.Y;
-
-                if (randColor) //Generates a random color if randColor
+                //new code
+                if (floodFillActive)
                 {
-                    KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
-                    KnownColor randomColorName = names[randomGen.Next(names.Length)];
-                    randomColor = Color.FromKnownColor(randomColorName);
-                }
-
-                if (trails == false)
-                {
-                    switch (currentShape) //Chooses which shape to create based on the current shape. Also chooses weather to paint it with random colors or a usercolor
-                    {
-                        case Shapes.LINE:
-                            if (randColor) shapes.Add(new APLine(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, x, y, userColor, brushWidth)); };
-                            break;
-                        case Shapes.OVAL:
-                            if (randColor) shapes.Add(new APOval(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, x, y, userColor, brushWidth)); };
-                            break;
-                        case Shapes.BOX:
-                            if (randColor) shapes.Add(new APBox(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, x, y, userColor, brushWidth)); };
-                            break;
-                        default:
-                            break;
-                    }
-
-                }
-                else //If trails is true
-                {
-                    switch (currentShape)
-                    {
-                        case Shapes.LINE:
-                            if (randColor) shapes.Add(new APLine(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, x, y, userColor, brushWidth)); };
-                            break;
-                        case Shapes.OVAL:
-                            if (randColor) shapes.Add(new APOval(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, x, y, userColor, brushWidth)); };
-                            break;
-                        case Shapes.BOX:
-                            if (randColor) shapes.Add(new APBox(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, x, y, userColor, brushWidth)); };
-                            break;
-                        default:
-                            break;
-
-                    }
-
-
-                }
-            }
-
-
-
-        //my code
-        old = e.Location;
-            if (radioButton1.Checked)
-                p.Width = 1;
-            else if (radioButton2.Checked)
-                p.Width = 5;
-            else if (radioButton3.Checked)
-                p.Width = 10;
-            else if (radioButton4.Checked)
-                p.Width = 15;
-            else if (radioButton5.Checked)
-                p.Width = 30;
-            else if (radioButton6.Checked)
-                p.Width = 40;
-            else if (radioButton7.Checked)
-                p.Width = 50;
-            else if (radioButton8.Checked)
-                p.Width = 60;
-            else if (radioButton9.Checked)
-                p.Width = 70;
-
-           
-        }
-
-
-        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-
-            //new code
-            Point endingPoint = e.Location;
-
-            int ex = endingPoint.X;
-            int ey = endingPoint.Y;
-            Shapes shape = currentShape;
-
-            if (drag)
-            {
-                if (!trails)
-                {
-                    shapes.Last().setX2(ex);
-                    shapes.Last().setY2(ey);
                 }
                 else
                 {
-                    shapes.Last().setX2(ex);
-                    shapes.Last().setY2(ey);
-                    if (randColor)
+                    drag = true;
+                    System.Drawing.Point startingPoint = e.Location;
+
+                    x = startingPoint.X; //Creates the starting point
+                    y = startingPoint.Y;
+
+                    if (randColor) //Generates a random color if randColor
                     {
                         KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
                         KnownColor randomColorName = names[randomGen.Next(names.Length)];
                         randomColor = Color.FromKnownColor(randomColorName);
                     }
 
-                    switch (shape)
+                    if (trails == false)
                     {
-                        case Shapes.LINE:
-                            if (randColor) shapes.Add(new APLine(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, ex, ey, userColor, brushWidth)); };
-                            break;
-                        case Shapes.OVAL:
-                            if (randColor) shapes.Add(new APOval(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, ex, ey, userColor, brushWidth)); };
-                            break;
-                        case Shapes.BOX:
-                            if (randColor) shapes.Add(new APBox(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, ex, ey, userColor, brushWidth)); };
-                            break;
-                        default:
-                            break;
+                        switch (currentShape) //Chooses which shape to create based on the current shape. Also chooses weather to paint it with random colors or a usercolor
+                        {
+                            case Shapes.LINE:
+                                if (randColor) shapes.Add(new APLine(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, x, y, userColor, brushWidth)); };
+                                break;
+                            case Shapes.OVAL:
+                                if (randColor) shapes.Add(new APOval(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, x, y, userColor, brushWidth)); };
+                                break;
+                            case Shapes.BOX:
+                                if (randColor) shapes.Add(new APBox(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, x, y, userColor, brushWidth)); };
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                    else //If trails is true
+                    {
+                        switch (currentShape)
+                        {
+                            case Shapes.LINE:
+                                if (randColor) shapes.Add(new APLine(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, x, y, userColor, brushWidth)); };
+                                break;
+                            case Shapes.OVAL:
+                                if (randColor) shapes.Add(new APOval(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, x, y, userColor, brushWidth)); };
+                                break;
+                            case Shapes.BOX:
+                                if (randColor) shapes.Add(new APBox(x, y, x, y, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, x, y, userColor, brushWidth)); };
+                                break;
+                            default:
+                                break;
+
+                        }
+
+
+                    }
+                }
+            }
+            else
+            {
+                //my code
+                old = e.Location;
+                if (radioButton1.Checked)
+                    p.Width = 1;
+                else if (radioButton2.Checked)
+                    p.Width = 5;
+                else if (radioButton3.Checked)
+                    p.Width = 10;
+                else if (radioButton4.Checked)
+                    p.Width = 15;
+                else if (radioButton5.Checked)
+                    p.Width = 30;
+                else if (radioButton6.Checked)
+                    p.Width = 40;
+                else if (radioButton7.Checked)
+                    p.Width = 50;
+                else if (radioButton8.Checked)
+                    p.Width = 60;
+                else if (radioButton9.Checked)
+                    p.Width = 70;
+
+            }
+        }
+
+
+        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (trackBar4.Enabled == true)
+            {
+                //new code
+                Point endingPoint = e.Location;
+
+                int ex = endingPoint.X;
+                int ey = endingPoint.Y;
+                Shapes shape = currentShape;
+
+                if (drag)
+                {
+                    if (!trails)
+                    {
+                        shapes.Last().setX2(ex);
+                        shapes.Last().setY2(ey);
+                    }
+                    else
+                    {
+                        shapes.Last().setX2(ex);
+                        shapes.Last().setY2(ey);
+                        if (randColor)
+                        {
+                            KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+                            KnownColor randomColorName = names[randomGen.Next(names.Length)];
+                            randomColor = Color.FromKnownColor(randomColorName);
+                        }
+
+                        switch (shape)
+                        {
+                            case Shapes.LINE:
+                                if (randColor) shapes.Add(new APLine(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APLine(x, y, ex, ey, userColor, brushWidth)); };
+                                break;
+                            case Shapes.OVAL:
+                                if (randColor) shapes.Add(new APOval(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APOval(x, y, ex, ey, userColor, brushWidth)); };
+                                break;
+                            case Shapes.BOX:
+                                if (randColor) shapes.Add(new APBox(x, y, ex, ey, randomColor, brushWidth)); else { shapes.Add(new APBox(x, y, ex, ey, userColor, brushWidth)); };
+                                break;
+                            default:
+                                break;
+                        }
+
+
                     }
 
-
-                }
-
-                Refresh();
-            }
-
-
-            
-            //my code
-            try
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    current = e.Location;
-                    g.DrawLine(p, old, current);
-                    old = current;
-                }
-                else
-                {
-
+                    Refresh();
                 }
             }
-            catch
+
+            else
             {
-                /*stops from crashing if drawing fails */
-                
-        }
-    
+
+                //my code
+                try
+                {
+                    if (e.Button == MouseButtons.Left)
+                    {
+                        current = e.Location;
+                        g.DrawLine(p, old, current);
+                        old = current;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch
+                {
+                    /*stops from crashing if drawing fails */
+
+                }
+
+            }
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
@@ -556,6 +555,7 @@ namespace Hines_Photo_Editor
         private void Button1_Click_1(object sender, EventArgs e)
         {
             p.Color = Color.Lime;
+            
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -743,13 +743,21 @@ namespace Hines_Photo_Editor
             }
         }
 
-        
+
 
 
         private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            drag = false;
-            Refresh();
+            if (trackBar4.Enabled == true)
+            {
+                drag = false;
+                Refresh();
+            }
+
+            else
+            {
+                //
+            }
         }
 
         private void HelpToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -778,10 +786,7 @@ namespace Hines_Photo_Editor
             trackBar4.Value = 4;
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-       
-        }
+    
 
         private void Circle_Click(object sender, EventArgs e )
         {
@@ -795,6 +800,21 @@ namespace Hines_Photo_Editor
 
         private void TextBox1_MouseClick(object sender, MouseEventArgs e)
         {
+        }
+
+        private void EnableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            trackBar4.Enabled = true;
+        }
+
+        private void DisableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void DisableToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            trackBar4.Enabled = false;
+
         }
 
         private void TrackBar4_ValueChanged(object sender, EventArgs e)

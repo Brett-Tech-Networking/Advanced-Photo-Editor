@@ -41,3 +41,4 @@ C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\bi
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Moradi Photo Editor.csprojAssemblyReference.cache
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.exe
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.pdb
+D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced_Photo_Editor.HelpPage.resources
