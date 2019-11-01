@@ -1,6 +1,6 @@
 ﻿namespace Hines_Photo_Editor
 {
-    partial class APE
+    partial class crop
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(APE));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(crop));
             this.reset_image_filters = new System.Windows.Forms.Button();
             this.Remove_Image = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -95,12 +96,18 @@
             this.ToolsToolBar = new System.Windows.Forms.ToolStrip();
             this.Pen = new System.Windows.Forms.ToolStripButton();
             this.Image_Erase = new System.Windows.Forms.ToolStripButton();
-            this.Circle = new System.Windows.Forms.ToolStripButton();
-            this.textdrop = new System.Windows.Forms.ToolStripButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBar4 = new System.Windows.Forms.TrackBar();
             this.shapenames = new System.Windows.Forms.Label();
+            this.ToolSelector = new System.Windows.Forms.TabControl();
+            this.PaintTools = new System.Windows.Forms.TabPage();
+            this.RotationLabel = new System.Windows.Forms.Label();
+            this.ImageRotateComboBox = new System.Windows.Forms.ComboBox();
+            this.Filters = new System.Windows.Forms.TabPage();
+            this.Stickers = new System.Windows.Forms.TabPage();
+            this.ImageRotation = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -112,6 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
+            this.ToolSelector.SuspendLayout();
+            this.PaintTools.SuspendLayout();
             this.SuspendLayout();
             // 
             // reset_image_filters
@@ -144,28 +153,28 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(1487, 678);
+            this.label1.Location = new System.Drawing.Point(170, 192);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.Size = new System.Drawing.Size(27, 15);
             this.label1.TabIndex = 8;
-            this.label1.Text = "RED";
+            this.label1.Text = "----";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // trackBar1
             // 
             this.trackBar1.LargeChange = 2;
-            this.trackBar1.Location = new System.Drawing.Point(1317, 678);
+            this.trackBar1.Location = new System.Drawing.Point(-4, 192);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(168, 45);
-            this.trackBar1.TabIndex = 9;
+            this.trackBar1.TabIndex = 10;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // trackBar2
             // 
             this.trackBar2.LargeChange = 2;
-            this.trackBar2.Location = new System.Drawing.Point(1317, 710);
+            this.trackBar2.Location = new System.Drawing.Point(-3, 235);
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(168, 45);
             this.trackBar2.TabIndex = 10;
@@ -174,7 +183,7 @@
             // trackBar3
             // 
             this.trackBar3.LargeChange = 2;
-            this.trackBar3.Location = new System.Drawing.Point(1317, 740);
+            this.trackBar3.Location = new System.Drawing.Point(-2, 278);
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(168, 45);
             this.trackBar3.TabIndex = 11;
@@ -184,26 +193,26 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(1487, 707);
+            this.label2.Location = new System.Drawing.Point(170, 235);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(27, 15);
             this.label2.TabIndex = 12;
-            this.label2.Text = "GREEN";
+            this.label2.Text = "----";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(1491, 740);
+            this.label3.Location = new System.Drawing.Point(170, 278);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Blue";
+            this.label3.Text = "----";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Save_Image
@@ -310,7 +319,7 @@
             this.filteryellowToolStripMenuItem});
             this.FiltersMenu.ForeColor = System.Drawing.Color.Lime;
             this.FiltersMenu.Name = "FiltersMenu";
-            this.FiltersMenu.Size = new System.Drawing.Size(180, 22);
+            this.FiltersMenu.Size = new System.Drawing.Size(141, 22);
             this.FiltersMenu.Text = "&Filters";
             // 
             // filtergreenToolStripMenuItem
@@ -339,7 +348,7 @@
             this.Rotate_Left});
             this.RotationMenu.ForeColor = System.Drawing.Color.Lime;
             this.RotationMenu.Name = "RotationMenu";
-            this.RotationMenu.Size = new System.Drawing.Size(180, 22);
+            this.RotationMenu.Size = new System.Drawing.Size(141, 22);
             this.RotationMenu.Text = "&Rotation";
             // 
             // Rotate_Right
@@ -369,7 +378,7 @@
             this.shapesToolStripMenuItem});
             this.Tools.ForeColor = System.Drawing.Color.Lime;
             this.Tools.Name = "Tools";
-            this.Tools.Size = new System.Drawing.Size(180, 22);
+            this.Tools.Size = new System.Drawing.Size(141, 22);
             this.Tools.Text = "&Tools";
             // 
             // removeImageToolStripMenuItem
@@ -448,7 +457,7 @@
             this.darkBlueToolStripMenuItem});
             this.backgroundColorToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.backgroundColorToolStripMenuItem.Text = "&Background";
             // 
             // BackRed
@@ -496,7 +505,7 @@
             this.disableToolStripMenuItem});
             this.shapesToolStripMenuItem1.ForeColor = System.Drawing.Color.Lime;
             this.shapesToolStripMenuItem1.Name = "shapesToolStripMenuItem1";
-            this.shapesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.shapesToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.shapesToolStripMenuItem1.Text = "Shapes";
             // 
             // enableToolStripMenuItem
@@ -504,7 +513,7 @@
             this.enableToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.enableToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
-            this.enableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enableToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.enableToolStripMenuItem.Text = "Enable";
             this.enableToolStripMenuItem.Click += new System.EventHandler(this.EnableToolStripMenuItem_Click);
             // 
@@ -513,7 +522,7 @@
             this.disableToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.disableToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.disableToolStripMenuItem.Name = "disableToolStripMenuItem";
-            this.disableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.disableToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.disableToolStripMenuItem.Text = "Disable";
             this.disableToolStripMenuItem.Click += new System.EventHandler(this.DisableToolStripMenuItem_Click_1);
             // 
@@ -561,7 +570,7 @@
             this.panel1.Controls.Add(this.radioButton3);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(1317, 482);
+            this.panel1.Location = new System.Drawing.Point(6, 7);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(68, 175);
             this.panel1.TabIndex = 19;
@@ -692,7 +701,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Lime;
-            this.label7.Location = new System.Drawing.Point(1385, 486);
+            this.label7.Location = new System.Drawing.Point(74, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 13);
             this.label7.TabIndex = 22;
@@ -713,8 +722,7 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.red);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.green);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(69, 134);
-            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
-            this.toolStripContainer1.Location = new System.Drawing.Point(1388, 502);
+            this.toolStripContainer1.Location = new System.Drawing.Point(77, 27);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(69, 159);
             this.toolStripContainer1.TabIndex = 21;
@@ -810,16 +818,13 @@
             this.ToolsToolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.ToolsToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Pen,
-            this.Image_Erase,
-            this.Circle,
-            this.textdrop});
+            this.Image_Erase});
             this.ToolsToolBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ToolsToolBar.Location = new System.Drawing.Point(0, 72);
             this.ToolsToolBar.Name = "ToolsToolBar";
-            this.ToolsToolBar.Size = new System.Drawing.Size(24, 94);
+            this.ToolsToolBar.Size = new System.Drawing.Size(32, 67);
             this.ToolsToolBar.TabIndex = 23;
             this.ToolsToolBar.Text = "ToolsToolBar";
-            this.ToolsToolBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ToolStrip1_ItemClicked);
             // 
             // Pen
             // 
@@ -827,7 +832,7 @@
             this.Pen.Image = global::Advanced_Photo_Editor.Properties.Resources.pen;
             this.Pen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pen.Name = "Pen";
-            this.Pen.Size = new System.Drawing.Size(22, 20);
+            this.Pen.Size = new System.Drawing.Size(30, 20);
             this.Pen.Text = "pen";
             this.Pen.Click += new System.EventHandler(this.Pen_Click);
             // 
@@ -837,29 +842,9 @@
             this.Image_Erase.Image = global::Advanced_Photo_Editor.Properties.Resources.eraser1;
             this.Image_Erase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Image_Erase.Name = "Image_Erase";
-            this.Image_Erase.Size = new System.Drawing.Size(22, 20);
+            this.Image_Erase.Size = new System.Drawing.Size(30, 20);
             this.Image_Erase.Text = "eraser";
             this.Image_Erase.Click += new System.EventHandler(this.Image_Erase_Click);
-            // 
-            // Circle
-            // 
-            this.Circle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.Circle.Image = ((System.Drawing.Image)(resources.GetObject("Circle.Image")));
-            this.Circle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Circle.Name = "Circle";
-            this.Circle.Size = new System.Drawing.Size(22, 20);
-            this.Circle.Text = "toolStripButton1";
-            this.Circle.Click += new System.EventHandler(this.Circle_Click);
-            // 
-            // textdrop
-            // 
-            this.textdrop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.textdrop.Image = ((System.Drawing.Image)(resources.GetObject("textdrop.Image")));
-            this.textdrop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.textdrop.Name = "textdrop";
-            this.textdrop.Size = new System.Drawing.Size(22, 20);
-            this.textdrop.Text = "toolStripButton1";
-            this.textdrop.Click += new System.EventHandler(this.Textdrop_Click);
             // 
             // pictureBox2
             // 
@@ -870,7 +855,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -901,6 +885,7 @@
             this.trackBar4.TabIndex = 25;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 1;
+            this.trackBar4.Scroll += new System.EventHandler(this.TrackBar4_Scroll);
             this.trackBar4.ValueChanged += new System.EventHandler(this.TrackBar4_ValueChanged);
             // 
             // shapenames
@@ -913,27 +898,114 @@
             this.shapenames.TabIndex = 26;
             this.shapenames.Text = "L      C      S      M";
             // 
-            // APE
+            // ToolSelector
+            // 
+            this.ToolSelector.Controls.Add(this.PaintTools);
+            this.ToolSelector.Controls.Add(this.Filters);
+            this.ToolSelector.Controls.Add(this.Stickers);
+            this.ToolSelector.Location = new System.Drawing.Point(1313, 128);
+            this.ToolSelector.Name = "ToolSelector";
+            this.ToolSelector.SelectedIndex = 0;
+            this.ToolSelector.Size = new System.Drawing.Size(230, 396);
+            this.ToolSelector.TabIndex = 27;
+            // 
+            // PaintTools
+            // 
+            this.PaintTools.BackColor = System.Drawing.Color.Black;
+            this.PaintTools.Controls.Add(this.RotationLabel);
+            this.PaintTools.Controls.Add(this.ImageRotateComboBox);
+            this.PaintTools.Controls.Add(this.panel1);
+            this.PaintTools.Controls.Add(this.label1);
+            this.PaintTools.Controls.Add(this.trackBar1);
+            this.PaintTools.Controls.Add(this.trackBar2);
+            this.PaintTools.Controls.Add(this.trackBar3);
+            this.PaintTools.Controls.Add(this.label7);
+            this.PaintTools.Controls.Add(this.label2);
+            this.PaintTools.Controls.Add(this.toolStripContainer1);
+            this.PaintTools.Controls.Add(this.label3);
+            this.PaintTools.Location = new System.Drawing.Point(4, 22);
+            this.PaintTools.Name = "PaintTools";
+            this.PaintTools.Padding = new System.Windows.Forms.Padding(3);
+            this.PaintTools.Size = new System.Drawing.Size(222, 370);
+            this.PaintTools.TabIndex = 0;
+            this.PaintTools.Text = "Paint Tools";
+            // 
+            // RotationLabel
+            // 
+            this.RotationLabel.AutoSize = true;
+            this.RotationLabel.ForeColor = System.Drawing.Color.Red;
+            this.RotationLabel.Location = new System.Drawing.Point(83, 319);
+            this.RotationLabel.Name = "RotationLabel";
+            this.RotationLabel.Size = new System.Drawing.Size(47, 13);
+            this.RotationLabel.TabIndex = 24;
+            this.RotationLabel.Text = "Rotation";
+            // 
+            // ImageRotateComboBox
+            // 
+            this.ImageRotateComboBox.BackColor = System.Drawing.Color.Black;
+            this.ImageRotateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ImageRotateComboBox.ForeColor = System.Drawing.Color.Red;
+            this.ImageRotateComboBox.Items.AddRange(new object[] {
+            "Right",
+            "Left"});
+            this.ImageRotateComboBox.Location = new System.Drawing.Point(50, 336);
+            this.ImageRotateComboBox.Name = "ImageRotateComboBox";
+            this.ImageRotateComboBox.Size = new System.Drawing.Size(121, 21);
+            this.ImageRotateComboBox.TabIndex = 23;
+            this.ImageRotateComboBox.SelectedIndexChanged += new System.EventHandler(this.ImageRotateComboBox_SelectedIndexChanged);
+            // 
+            // Filters
+            // 
+            this.Filters.BackColor = System.Drawing.Color.Black;
+            this.Filters.Location = new System.Drawing.Point(4, 22);
+            this.Filters.Name = "Filters";
+            this.Filters.Padding = new System.Windows.Forms.Padding(3);
+            this.Filters.Size = new System.Drawing.Size(222, 370);
+            this.Filters.TabIndex = 1;
+            this.Filters.Text = "Filters";
+            // 
+            // Stickers
+            // 
+            this.Stickers.BackColor = System.Drawing.Color.Black;
+            this.Stickers.Location = new System.Drawing.Point(4, 22);
+            this.Stickers.Name = "Stickers";
+            this.Stickers.Size = new System.Drawing.Size(222, 370);
+            this.Stickers.TabIndex = 2;
+            this.Stickers.Text = "Stickers";
+            // 
+            // ImageRotation
+            // 
+            this.ImageRotation.Enabled = true;
+            this.ImageRotation.Interval = 1000;
+            this.ImageRotation.Tick += new System.EventHandler(this.ImageRotation_Tick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(1349, 761);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(175, 24);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "This software is owned and updated\r\n by Brett Tech Networking Copyright 2019";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // crop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1555, 797);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.ToolSelector);
             this.Controls.Add(this.shapenames);
             this.Controls.Add(this.trackBar4);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ToolsToolBar);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.toolStripContainer1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Open_Image);
             this.Controls.Add(this.Save_Image);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.trackBar3);
-            this.Controls.Add(this.trackBar2);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.Remove_Image);
             this.Controls.Add(this.reset_image_filters);
             this.Controls.Add(this.pictureBox1);
@@ -942,7 +1014,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "APE";
+            this.Name = "crop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Advanced Photo Editor by Brett Tech Networking";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -962,6 +1034,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
+            this.ToolSelector.ResumeLayout(false);
+            this.PaintTools.ResumeLayout(false);
+            this.PaintTools.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1027,7 +1102,6 @@
         private System.Windows.Forms.ToolStripMenuItem BackRed;
         private System.Windows.Forms.ToolStripMenuItem BackBlack;
         private System.Windows.Forms.ToolStripMenuItem darkBlueToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton Circle;
         private System.Windows.Forms.TrackBar trackBar4;
         private System.Windows.Forms.Label shapenames;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
@@ -1036,11 +1110,18 @@
         private System.Windows.Forms.ToolStripMenuItem squareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem squareToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton textdrop;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem shapesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem enableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disableToolStripMenuItem;
+        private System.Windows.Forms.TabControl ToolSelector;
+        private System.Windows.Forms.TabPage PaintTools;
+        private System.Windows.Forms.TabPage Filters;
+        private System.Windows.Forms.TabPage Stickers;
+        private System.Windows.Forms.Label RotationLabel;
+        private System.Windows.Forms.ComboBox ImageRotateComboBox;
+        private System.Windows.Forms.Timer ImageRotation;
+        private System.Windows.Forms.Label label4;
     }
 }
 

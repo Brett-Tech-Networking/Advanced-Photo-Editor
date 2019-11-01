@@ -16,7 +16,7 @@ namespace Hines_Photo_Editor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new APE());
+            Application.Run(new crop());
         }
     }
 }

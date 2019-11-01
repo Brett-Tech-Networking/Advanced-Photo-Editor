@@ -22,7 +22,6 @@ D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\bin\Debug\Advanced 
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\bin\Debug\Advanced Photo Editor.exe
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\bin\Debug\Advanced Photo Editor.pdb
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Moradi Photo Editor.csprojAssemblyReference.cache
-D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.APE.resources
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.Information.resources
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced_Photo_Editor.Properties.Resources.resources
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Moradi Photo Editor.csproj.GenerateResource.cache
@@ -42,3 +41,4 @@ C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\ob
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.exe
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.pdb
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced_Photo_Editor.HelpPage.resources
+D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.crop.resources

@@ -15,10 +15,11 @@ using System.Text;
 using Point = System.Drawing.Point;
 using Advanced_Photo_Editor;
 using System.Messaging;
+using System.Threading.Tasks;
 
 namespace Hines_Photo_Editor
 {
-    public partial class APE : Form
+    public partial class crop : Form
     {
         public System.Drawing.Point current = new System.Drawing.Point();
         public System.Drawing.Point old = new System.Drawing.Point();
@@ -47,7 +48,7 @@ namespace Hines_Photo_Editor
 
 
 
-        public APE()
+        public crop()
         {
             InitializeComponent();
 
@@ -284,7 +285,7 @@ namespace Hines_Photo_Editor
 
             if (MessageBox.Show("This Will Delete Any Unsaved Changes, Do You Wish To Continue?", "Do You Want To Save?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                pictureBox1.Refresh();
+                pictureBox1.Image = null;
             }
             else
             {
@@ -297,15 +298,6 @@ namespace Hines_Photo_Editor
             pictureBox1.AllowDrop = true;
         }
 
-        private void filter1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void filterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void infromationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -320,7 +312,7 @@ namespace Hines_Photo_Editor
 
         }
 
-      
+
 
         private void FiltergreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -332,10 +324,7 @@ namespace Hines_Photo_Editor
             filter3();
         }
 
-        private void Filter3ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void PictureBox1_DragDrop(object sender, DragEventArgs e)
         {
@@ -543,19 +532,16 @@ namespace Hines_Photo_Editor
                     /*stops from crashing if drawing fails */
 
                 }
+                int crpX, crpY, rectW, rectH;
 
             }
         }
 
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
             p.Color = Color.Lime;
-            
+
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -586,7 +572,7 @@ namespace Hines_Photo_Editor
         private void Pen_Click(object sender, EventArgs e)
         {
             //my code
-            
+
             if (radioButton1.Checked)
                 p.Width = 1;
             else if (radioButton2.Checked)
@@ -642,7 +628,7 @@ namespace Hines_Photo_Editor
         private void SaveNEWToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            saveFileDialog1.FileName ="image";
+            saveFileDialog1.FileName = "image";
             saveFileDialog1.DefaultExt = "";
             saveFileDialog1.Filter = "bmp images (*.bmp)|*.bmp";
 
@@ -696,15 +682,7 @@ namespace Hines_Photo_Editor
             }
         }
 
-        private void ToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
-        }
-
-        private void PictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void RedToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -758,6 +736,11 @@ namespace Hines_Photo_Editor
             {
                 //
             }
+
+
+            //crop
+
+
         }
 
         private void HelpToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -786,20 +769,60 @@ namespace Hines_Photo_Editor
             trackBar4.Value = 4;
         }
 
-    
 
-        private void Circle_Click(object sender, EventArgs e )
+
+        private void Circle_Click(object sender, EventArgs e)
         {
             HelpPage help = new HelpPage();
             help.Show();
         }
 
-        private void Textdrop_Click(object sender, EventArgs e)
+
+
+        private void DisableToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            trackBar4.Enabled = false;
+
         }
 
-        private void TextBox1_MouseClick(object sender, MouseEventArgs e)
+        private void ImageRotation_Tick(object sender, EventArgs e)
         {
+
+        }
+
+        private void ImageRotateComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ImageRotateComboBox.SelectedItem == "Right")
+            {
+                try
+                {
+                    Image img = pictureBox1.Image;
+                    img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    pictureBox1.Image = img;
+                }
+                catch
+                {
+                    //
+                }
+            }
+            else if (ImageRotateComboBox.SelectedItem == "Left")
+            {
+                try
+                {
+                    Image img = pictureBox1.Image;
+                    img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    pictureBox1.Image = img;
+                }
+                catch
+                {
+                    //
+                }
+            }
+        }
+
+        private void TrackBar4_Scroll(object sender, EventArgs e)
+        {
+
         }
 
         private void EnableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -807,15 +830,7 @@ namespace Hines_Photo_Editor
             trackBar4.Enabled = true;
         }
 
-        private void DisableToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void DisableToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            trackBar4.Enabled = false;
-
-        }
+    
 
         private void TrackBar4_ValueChanged(object sender, EventArgs e)
         {
@@ -827,6 +842,8 @@ namespace Hines_Photo_Editor
                 case 4: currentShape = Shapes.NONE; break;
             }
         }
+
+
     }
 }
 

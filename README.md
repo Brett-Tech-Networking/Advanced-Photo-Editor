@@ -1,4 +1,24 @@
 # Advanced Photo Editor
+
+# Changes Made: 11/1/19
+-Added TabControl to better organize varieties of tools
+
+-Added Quick Dropdown in TabControl for image rotation
+
+-Added sections to tabcontrol listed: Paint Tools, Filters, Stickers. (only "Paint Tools" has options currently)
+
+-Removed Labled (red, green, blue) replaced with colored lines for better viewing
+
+# Coming Soon
+
+-Crop images 
+
+-Zoom ability
+
+-Right Click option menu for quicker tool access
+
+-And More...
+
 # Changes Made: 10/29/19
 -Added Shape Selector (Line, Circle, Square, Modify(Last Shape)
 
