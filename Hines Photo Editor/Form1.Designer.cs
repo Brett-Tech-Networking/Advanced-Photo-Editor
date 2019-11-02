@@ -105,12 +105,16 @@
             this.RotationLabel = new System.Windows.Forms.Label();
             this.ImageRotateComboBox = new System.Windows.Forms.ComboBox();
             this.Filters = new System.Windows.Forms.TabPage();
+            this.SetImageFilter = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.Stickers = new System.Windows.Forms.TabPage();
             this.ImageRotation = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Loadimg = new System.Windows.Forms.Button();
             this.ClearImg = new System.Windows.Forms.Button();
+            this.PB2Background = new System.Windows.Forms.Timer(this.components);
+            this.Transparent = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -124,6 +128,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
             this.ToolSelector.SuspendLayout();
             this.PaintTools.SuspendLayout();
+            this.Filters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -889,7 +894,6 @@
             this.trackBar4.TabIndex = 25;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 1;
-            this.trackBar4.Scroll += new System.EventHandler(this.TrackBar4_Scroll);
             this.trackBar4.ValueChanged += new System.EventHandler(this.TrackBar4_ValueChanged);
             // 
             // shapenames
@@ -961,12 +965,40 @@
             // Filters
             // 
             this.Filters.BackColor = System.Drawing.Color.Black;
+            this.Filters.Controls.Add(this.SetImageFilter);
+            this.Filters.Controls.Add(this.listBox1);
             this.Filters.Location = new System.Drawing.Point(4, 22);
             this.Filters.Name = "Filters";
             this.Filters.Padding = new System.Windows.Forms.Padding(3);
             this.Filters.Size = new System.Drawing.Size(222, 370);
             this.Filters.TabIndex = 1;
             this.Filters.Text = "Filters";
+            // 
+            // SetImageFilter
+            // 
+            this.SetImageFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SetImageFilter.ForeColor = System.Drawing.Color.Red;
+            this.SetImageFilter.Location = new System.Drawing.Point(74, 345);
+            this.SetImageFilter.Name = "SetImageFilter";
+            this.SetImageFilter.Size = new System.Drawing.Size(75, 23);
+            this.SetImageFilter.TabIndex = 1;
+            this.SetImageFilter.Text = "Set Filter";
+            this.SetImageFilter.UseVisualStyleBackColor = true;
+            this.SetImageFilter.Click += new System.EventHandler(this.SetImageFilter_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.Black;
+            this.listBox1.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.ForeColor = System.Drawing.Color.Lime;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 17;
+            this.listBox1.Items.AddRange(new object[] {
+            "Blur Image"});
+            this.listBox1.Location = new System.Drawing.Point(1, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(221, 344);
+            this.listBox1.TabIndex = 0;
             // 
             // Stickers
             // 
@@ -998,19 +1030,25 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.pictureBox3.Location = new System.Drawing.Point(1314, 530);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(229, 179);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 29;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBox3_Click);
             this.pictureBox3.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox3_DragDrop);
             this.pictureBox3.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox3_DragEnter);
+            this.pictureBox3.DoubleClick += new System.EventHandler(this.PictureBox3_DoubleClick);
             // 
             // Loadimg
             // 
-            this.Loadimg.Location = new System.Drawing.Point(1337, 716);
+            this.Loadimg.Location = new System.Drawing.Point(1314, 715);
             this.Loadimg.Name = "Loadimg";
             this.Loadimg.Size = new System.Drawing.Size(75, 23);
             this.Loadimg.TabIndex = 30;
@@ -1020,7 +1058,7 @@
             // 
             // ClearImg
             // 
-            this.ClearImg.Location = new System.Drawing.Point(1439, 716);
+            this.ClearImg.Location = new System.Drawing.Point(1390, 715);
             this.ClearImg.Name = "ClearImg";
             this.ClearImg.Size = new System.Drawing.Size(75, 23);
             this.ClearImg.TabIndex = 30;
@@ -1028,12 +1066,29 @@
             this.ClearImg.UseVisualStyleBackColor = true;
             this.ClearImg.Click += new System.EventHandler(this.ClearImg_Click);
             // 
+            // PB2Background
+            // 
+            this.PB2Background.Enabled = true;
+            this.PB2Background.Interval = 1000;
+            this.PB2Background.Tick += new System.EventHandler(this.PB2Background_Tick);
+            // 
+            // Transparent
+            // 
+            this.Transparent.Location = new System.Drawing.Point(1468, 715);
+            this.Transparent.Name = "Transparent";
+            this.Transparent.Size = new System.Drawing.Size(75, 23);
+            this.Transparent.TabIndex = 31;
+            this.Transparent.Text = "Transparent";
+            this.Transparent.UseVisualStyleBackColor = true;
+            this.Transparent.Click += new System.EventHandler(this.Transparent_Click);
+            // 
             // crop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1555, 797);
+            this.Controls.Add(this.Transparent);
             this.Controls.Add(this.ClearImg);
             this.Controls.Add(this.Loadimg);
             this.Controls.Add(this.pictureBox3);
@@ -1076,6 +1131,7 @@
             this.ToolSelector.ResumeLayout(false);
             this.PaintTools.ResumeLayout(false);
             this.PaintTools.PerformLayout();
+            this.Filters.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1165,6 +1221,10 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button Loadimg;
         private System.Windows.Forms.Button ClearImg;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button SetImageFilter;
+        private System.Windows.Forms.Timer PB2Background;
+        private System.Windows.Forms.Button Transparent;
     }
 }
 

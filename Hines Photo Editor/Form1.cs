@@ -57,6 +57,7 @@ namespace Hines_Photo_Editor
             this.DragEnter += new DragEventHandler(this.Form1_Load);
             pictureBox1.BackgroundImage = surface;
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
+
         }
 
         private Point firstPoint = new Point();
@@ -182,6 +183,9 @@ namespace Hines_Photo_Editor
             if (!opened)
             {
                 MessageBox.Show("Open an image then apply changes");
+                trackBar1.Value = 0;
+                trackBar2.Value = 0;
+                trackBar3.Value = 0;
 
             }
             else
@@ -282,7 +286,8 @@ namespace Hines_Photo_Editor
             trackBar3.Value = 0;
             if (!drag) { shapes.Clear(); Refresh(); }
 
-            pictureBox3.Image = null;
+            pictureBox3.Location = new Point(1314, 530);
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -853,11 +858,6 @@ namespace Hines_Photo_Editor
             }
         }
 
-        private void TrackBar4_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
         private void EnableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             trackBar4.Enabled = true;
@@ -887,10 +887,81 @@ namespace Hines_Photo_Editor
 
         private void ClearImg_Click(object sender, EventArgs e)
         {
-            pictureBox3.Image = null;
+            try
+            {
+                pictureBox3.Image = null;
+                pictureBox3.Location = new Point(1314, 530);
+                pictureBox3.BorderStyle = BorderStyle.Fixed3D;
+            }
+            catch
+            {
+
+            }
         }
 
-        private void TrackBar4_ValueChanged(object sender, EventArgs e)
+        private void PictureBox3_DoubleClick(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = BorderStyle.None;
+            pictureBox3.BackColor = Color.Transparent;
+            try
+            {
+                pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
+                pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
+
+                helper.BlendPictures(pictureBox1, pictureBox3);
+                pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch
+            {
+                //
+            }
+       
+
+    }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void SetImageFilter_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem == "Blur Image")
+            {
+
+            }
+            else
+            {
+                //
+            }
+        }
+
+        private void PB2Background_Tick(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void Transparent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
+                pictureBox3.Image = Image.FromFile(openFileDialog1.FileName);
+
+                helper.BlendPictures(pictureBox1, pictureBox3);
+                pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch
+            {
+                //
+            }
+
+        }
+
+
+
+
+    private void TrackBar4_ValueChanged(object sender, EventArgs e)
         {
             switch (trackBar4.Value)
             {
