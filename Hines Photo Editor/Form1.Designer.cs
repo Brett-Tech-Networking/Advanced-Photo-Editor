@@ -108,6 +108,9 @@
             this.Stickers = new System.Windows.Forms.TabPage();
             this.ImageRotation = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Loadimg = new System.Windows.Forms.Button();
+            this.ClearImg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -121,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
             this.ToolSelector.SuspendLayout();
             this.PaintTools.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // reset_image_filters
@@ -494,7 +498,7 @@
             this.shapesToolStripMenuItem1});
             this.toolsToolStripMenuItem.ForeColor = System.Drawing.Color.Lime;
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // shapesToolStripMenuItem1
@@ -822,7 +826,7 @@
             this.ToolsToolBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.ToolsToolBar.Location = new System.Drawing.Point(0, 72);
             this.ToolsToolBar.Name = "ToolsToolBar";
-            this.ToolsToolBar.Size = new System.Drawing.Size(32, 67);
+            this.ToolsToolBar.Size = new System.Drawing.Size(24, 48);
             this.ToolsToolBar.TabIndex = 23;
             this.ToolsToolBar.Text = "ToolsToolBar";
             // 
@@ -832,7 +836,7 @@
             this.Pen.Image = global::Advanced_Photo_Editor.Properties.Resources.pen;
             this.Pen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pen.Name = "Pen";
-            this.Pen.Size = new System.Drawing.Size(30, 20);
+            this.Pen.Size = new System.Drawing.Size(22, 20);
             this.Pen.Text = "pen";
             this.Pen.Click += new System.EventHandler(this.Pen_Click);
             // 
@@ -842,7 +846,7 @@
             this.Image_Erase.Image = global::Advanced_Photo_Editor.Properties.Resources.eraser1;
             this.Image_Erase.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Image_Erase.Name = "Image_Erase";
-            this.Image_Erase.Size = new System.Drawing.Size(30, 20);
+            this.Image_Erase.Size = new System.Drawing.Size(22, 20);
             this.Image_Erase.Text = "eraser";
             this.Image_Erase.Click += new System.EventHandler(this.Image_Erase_Click);
             // 
@@ -992,12 +996,47 @@
             this.label4.Text = "This software is owned and updated\r\n by Brett Tech Networking Copyright 2019";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox3.Location = new System.Drawing.Point(1314, 530);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(229, 179);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 29;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.DragDrop += new System.Windows.Forms.DragEventHandler(this.PictureBox3_DragDrop);
+            this.pictureBox3.DragEnter += new System.Windows.Forms.DragEventHandler(this.PictureBox3_DragEnter);
+            // 
+            // Loadimg
+            // 
+            this.Loadimg.Location = new System.Drawing.Point(1337, 716);
+            this.Loadimg.Name = "Loadimg";
+            this.Loadimg.Size = new System.Drawing.Size(75, 23);
+            this.Loadimg.TabIndex = 30;
+            this.Loadimg.Text = "Load";
+            this.Loadimg.UseVisualStyleBackColor = true;
+            this.Loadimg.Click += new System.EventHandler(this.Loadimg_Click);
+            // 
+            // ClearImg
+            // 
+            this.ClearImg.Location = new System.Drawing.Point(1439, 716);
+            this.ClearImg.Name = "ClearImg";
+            this.ClearImg.Size = new System.Drawing.Size(75, 23);
+            this.ClearImg.TabIndex = 30;
+            this.ClearImg.Text = "Clear";
+            this.ClearImg.UseVisualStyleBackColor = true;
+            this.ClearImg.Click += new System.EventHandler(this.ClearImg_Click);
+            // 
             // crop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1555, 797);
+            this.Controls.Add(this.ClearImg);
+            this.Controls.Add(this.Loadimg);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ToolSelector);
             this.Controls.Add(this.shapenames);
@@ -1037,6 +1076,7 @@
             this.ToolSelector.ResumeLayout(false);
             this.PaintTools.ResumeLayout(false);
             this.PaintTools.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1122,6 +1162,9 @@
         private System.Windows.Forms.ComboBox ImageRotateComboBox;
         private System.Windows.Forms.Timer ImageRotation;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button Loadimg;
+        private System.Windows.Forms.Button ClearImg;
     }
 }
 

@@ -3,19 +3,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Windows;
-using Microsoft.Office.Interop.Excel;
-using System.Net;
+using System.Data;
 using Rectangle = System.Drawing.Rectangle;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Linq;
-using System.Text;
 using Point = System.Drawing.Point;
 using Advanced_Photo_Editor;
-using System.Messaging;
-using System.Threading.Tasks;
+
 
 namespace Hines_Photo_Editor
 {
@@ -51,6 +45,7 @@ namespace Hines_Photo_Editor
         public crop()
         {
             InitializeComponent();
+            INIT();
 
             g = pictureBox1.CreateGraphics();
             p.SetLineCap(System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.DashCap.Round);
@@ -64,6 +59,31 @@ namespace Hines_Photo_Editor
             pictureBox1.BackgroundImageLayout = ImageLayout.None;
         }
 
+        private Point firstPoint = new Point();
+
+        public void INIT()
+        {
+            pictureBox3.MouseDown += (ss, ee) =>
+            {
+                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    firstPoint = Control.MousePosition;
+                }
+            };
+            pictureBox3.MouseMove += (ss, ee) =>
+            {
+                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    Point temp = Control.MousePosition;
+                    Point res = new Point(firstPoint.X - temp.X, firstPoint.Y - temp.Y);
+
+                    pictureBox3.Location = new Point(pictureBox3.Location.X - res.X, pictureBox3.Location.Y - res.Y);
+
+                    firstPoint = temp;
+
+                }
+            };
+        }
 
         void openimage()
         {
@@ -72,6 +92,17 @@ namespace Hines_Photo_Editor
             {
                 file = Image.FromFile(openFileDialog1.FileName);
                 pictureBox1.Image = file;
+                opened = true;
+            }
+        }
+
+        void openimage2()
+        {
+            DialogResult dr = openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                file = Image.FromFile(openFileDialog1.FileName);
+                pictureBox3.Image = file;
                 opened = true;
             }
         }
@@ -246,11 +277,12 @@ namespace Hines_Photo_Editor
         private void button1_Click(object sender, EventArgs e)
         {
             pictureBox1.Refresh();
-            reload();
             trackBar1.Value = 0;
             trackBar2.Value = 0;
             trackBar3.Value = 0;
             if (!drag) { shapes.Clear(); Refresh(); }
+
+            pictureBox3.Image = null;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -296,6 +328,7 @@ namespace Hines_Photo_Editor
         private void Form1_Load(object sender, EventArgs e)
         {
             pictureBox1.AllowDrop = true;
+            pictureBox3.AllowDrop = true;
         }
 
 
@@ -830,7 +863,32 @@ namespace Hines_Photo_Editor
             trackBar4.Enabled = true;
         }
 
-    
+        private void PictureBox3_DragDrop(object sender, DragEventArgs e)
+        {
+            var data = e.Data.GetData(DataFormats.FileDrop);
+            if (data != null)
+            {
+                var fileNames = data as string[];
+                if (fileNames.Length > 0)
+                    pictureBox3.Image = Image.FromFile(fileNames[0]);
+            }
+        }
+
+        private void PictureBox3_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+
+        }
+
+        private void Loadimg_Click(object sender, EventArgs e)
+        {
+            openimage2();
+        }
+
+        private void ClearImg_Click(object sender, EventArgs e)
+        {
+            pictureBox3.Image = null;
+        }
 
         private void TrackBar4_ValueChanged(object sender, EventArgs e)
         {

@@ -28,7 +28,6 @@ D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Moradi Ph
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Moradi Photo Editor.csproj.CoreCompileInputs.cache
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.exe
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.pdb
-C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.APE.resources
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced_Photo_Editor.HelpPage.resources
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.Information.resources
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced_Photo_Editor.Properties.Resources.resources
@@ -42,3 +41,4 @@ C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\ob
 C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced Photo Editor.pdb
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Advanced_Photo_Editor.HelpPage.resources
 D:\Documents\github\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.crop.resources
+C:\Users\Brett Tech\Documents\GitHub\Advanced-Photo-Editor\Hines Photo Editor\obj\Debug\Hines_Photo_Editor.crop.resources
